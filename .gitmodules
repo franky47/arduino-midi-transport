@@ -1,0 +1,3 @@
+[submodule "external/opa"]
+	path = external/opa
+	url = https://github.com/Marzac/OPA-Library.git
