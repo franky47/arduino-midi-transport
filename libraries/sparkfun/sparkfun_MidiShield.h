@@ -85,9 +85,9 @@ public:
     static inline bool readButtons(ButtonsState& ioState)
     {
         bool changed = false;
-        changed |= ark::updateIfDifferent(ioState.mLeft,   digitalRead(buttonLeft));
-        changed |= ark::updateIfDifferent(ioState.mMiddle, digitalRead(buttonMiddle));
-        changed |= ark::updateIfDifferent(ioState.mRight,  digitalRead(buttonRight));
+        changed |= ark::updateIfDifferent(ioState.mLeft,   bool(digitalRead(buttonLeft)));
+        changed |= ark::updateIfDifferent(ioState.mMiddle, bool(digitalRead(buttonMiddle)));
+        changed |= ark::updateIfDifferent(ioState.mRight,  bool(digitalRead(buttonRight)));
         return changed;
     }
     static inline void readPots(PotsState& ioState)
