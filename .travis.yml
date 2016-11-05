@@ -20,3 +20,6 @@ install:
 
 script:
     - platformio ci --lib="libraries/ark" --lib="libraries/sparkfun" --board=leonardo
+
+notifications:
+    email: false
