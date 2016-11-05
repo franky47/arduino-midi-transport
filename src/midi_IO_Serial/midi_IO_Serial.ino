@@ -20,7 +20,10 @@
  * SOFTWARE.
  */
 
+#include <MIDI.h>
 #include <sparkfun_MidiShield.h>
+
+MIDI_CREATE_DEFAULT_INSTANCE();
 
 struct State
 {
@@ -32,13 +35,29 @@ State sState;
 
 // -----------------------------------------------------------------------------
 
+void handleNoteOn(byte inChannel, byte inNote, byte inVelocity)
+{
+    sparkfun::MidiShield::setGreenLedState(true);
+}
+
+void handleNoteOff(byte inChannel, byte inNote, byte inVelocity)
+{
+    sparkfun::MidiShield::setGreenLedState(false);
+}
+
+// -----------------------------------------------------------------------------
+
 void setup()
 {
     sparkfun::MidiShield::setup();
+    MIDI.setHandleNoteOn(handleNoteOn);
+    MIDI.setHandleNoteOff(handleNoteOff);
+    MIDI.begin(MIDI_CHANNEL_OMNI);
 }
 
 void loop()
 {
     sparkfun::MidiShield::readPots(sState.mPots);
     sparkfun::MidiShield::readButtons(sState.mButtons);
+    MIDI.read();
 }

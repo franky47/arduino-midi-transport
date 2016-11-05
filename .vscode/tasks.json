@@ -6,6 +6,7 @@
     "isShellCommand": true,
     "args": [
         "ci",
+        "--lib=${workspaceRoot}/external/arduino-midi-library",
         "--lib=${workspaceRoot}/libraries/ark",
         "--lib=${workspaceRoot}/libraries/sparkfun",
         "--project-conf", "./platformio.ini",
