@@ -1,0 +1,22 @@
+sudo: false
+language: python
+python:
+    - "2.7"
+
+cache:
+    directories:
+        - "~/.platformio"
+
+env:
+    - PLATFORMIO_CI_SRC=src/midi_IO_Serial
+    - PLATFORMIO_CI_SRC=src/midi_IO_Usb
+    - PLATFORMIO_CI_SRC=src/midi_IO_Bluetooth
+    - PLATFORMIO_CI_SRC=src/midi_Bridge_Bluetooth_Serial
+    - PLATFORMIO_CI_SRC=src/midi_Bridge_Usb_Bluetooth
+    - PLATFORMIO_CI_SRC=src/midi_Bridge_Usb_Serial
+
+install:
+    - pip install -U platformio
+
+script:
+    - platformio ci --lib="libraries/ark" --lib="libraries/sparkfun" --board=leonardo
