@@ -20,12 +20,25 @@
  * SOFTWARE.
  */
 
+#include <sparkfun_MidiShield.h>
+
+struct State
+{
+    sparkfun::MidiShield::ButtonsState  mButtons;
+    sparkfun::MidiShield::PotsState     mPots;
+};
+
+State sState;
+
+// -----------------------------------------------------------------------------
+
 void setup()
 {
-
+    sparkfun::MidiShield::setup();
 }
 
 void loop()
 {
-
+    sparkfun::MidiShield::readPots(sState.mPots);
+    sparkfun::MidiShield::readButtons(sState.mButtons);
 }
