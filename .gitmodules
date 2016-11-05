@@ -1,3 +1,6 @@
 [submodule "external/opa"]
 	path = external/opa
 	url = https://github.com/Marzac/OPA-Library.git
+[submodule "external/ble-shield"]
+	path = external/ble-shield
+	url = https://github.com/RedBearLab/BLEShield.git
